@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_bg"
+    android:gravity="center"
+    tools:context=".SplashScreenActivity">
+
+    <TextView
+        android:id="@+id/splash_txt_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/heading_txt_clr"
+        android:textSize="@dimen/ssa_tle_txt_size"
+        android:textStyle="bold" />
+
+</LinearLayout>

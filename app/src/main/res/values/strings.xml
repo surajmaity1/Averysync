@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Averysync</string>
+    <string name="img_desc">image</string>
+    <string name="plan">Planning is Essential</string>
+    <string name="plan_text_desc">"Expect the best, plan for the worst, and prepare to be surprised." ~ Denis Waitley </string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Create Account</string>
+    <string name="reset_password">RESET PASSWORD</string>
+    <string name="rlf_img">rlf_image</string>
+</resources>

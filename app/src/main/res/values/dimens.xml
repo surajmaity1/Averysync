@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        tts = Title Text Size
+    -->
+    <dimen name="ssa_tle_txt_size">40sp</dimen>
+    <dimen name="rlf_tts">35sp</dimen>
+    <dimen name="margin_top_rlf_tt">35dp</dimen>
+    <dimen name="img_margin_top">28dp</dimen>
+    <dimen name="plan_text_margin">28dp</dimen>
+    <dimen name="plan_text_size">22sp</dimen>
+    <dimen name="rfl_margin_start_end">18dp</dimen>
+    <dimen name="rfl_text_line_spc">5dp</dimen>
+    <dimen name="rfl_margin_top_img">18dp</dimen>
+    <dimen name="plan_text_desc_size">16sp</dimen>
+    <dimen name="btn_margin">23dp</dimen>
+    <dimen name="rlf_btn_margin_top">40dp</dimen>
+    <dimen name="btn_padding_top_btm">10dp</dimen>
+    <dimen name="btn_margin_top">16dp</dimen>
+    <dimen name="btn_txt_size">16sp</dimen>
+</resources>

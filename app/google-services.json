@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "647181925865",
+    "project_id": "averysync",
+    "storage_bucket": "averysync.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647181925865:android:49b407109d90542fd39f78",
+        "android_client_info": {
+          "package_name": "com.surajmyt.averysync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647181925865-9p6b8j2b3cqd6n7po41fpb2dk6lvlkjr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.surajmyt.averysync",
+            "certificate_hash": "7b75098ff72b033522afe21a438d590329c564cd"
+          }
+        },
+        {
+          "client_id": "647181925865-lb5p6mkn8knkv91i8kar14trqm8aifep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS-cxtim_BLGchcs2aPnJ4jCemqPZPJUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647181925865-lb5p6mkn8knkv91i8kar14trqm8aifep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

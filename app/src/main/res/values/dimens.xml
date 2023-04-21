@@ -18,4 +18,20 @@
     <dimen name="btn_padding_top_btm">10dp</dimen>
     <dimen name="btn_margin_top">16dp</dimen>
     <dimen name="btn_txt_size">16sp</dimen>
+    <dimen name="slf_screen_btn_margin_top">32dp</dimen>
+    <dimen name="slf_head_txt_sz">22sp</dimen>
+    <dimen name="margin_top_spc">42dp</dimen>
+    <dimen name="slf_desc_txt_sz">18sp</dimen>
+    <dimen name="slf_margin">25dp</dimen>
+    <dimen name="slf_card_view_margin_top">50dp</dimen>
+    <dimen name="card_view_elevation">12dp</dimen>
+    <dimen name="card_view_corner_radius">12dp</dimen>
+    <dimen name="card_view_content_padding">18dp</dimen>
+    <dimen name="til_margin">20dp</dimen>
+    <dimen name="enter_txt_sz">17sp</dimen>
+    <dimen name="til_margin_top">20dp</dimen>
+    <dimen name="pg_padding">12dp</dimen>
+    <dimen name="pg_bar_size">55dp</dimen>
+    <dimen name="pg_txt_margin">15dp</dimen>
+    <dimen name="pg_txt_sz">18sp</dimen>
 </resources>

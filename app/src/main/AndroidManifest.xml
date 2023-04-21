@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,12 +17,30 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityRLF"
+            android:name=".activities.ResetPassword"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Averysync.NoActionBar"/>
+            android:theme="@style/Theme.Averysync.NoActionBar" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activities.HelperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LogIn"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Averysync.NoActionBar" />
+        <activity
+            android:name=".activities.SignUp"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Averysync.NoActionBar" />
+        <activity
+            android:name=".activities.ActivityRLF"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Averysync.NoActionBar" />
+        <activity
+            android:name=".activities.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Averysync.NoActionBar">
@@ -28,7 +50,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

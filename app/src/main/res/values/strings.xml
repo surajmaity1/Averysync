@@ -5,6 +5,14 @@
     <string name="plan_text_desc">"Expect the best, plan for the worst, and prepare to be surprised." ~ Denis Waitley </string>
     <string name="log_in">Log In</string>
     <string name="sign_up">Create Account</string>
-    <string name="reset_password">RESET PASSWORD</string>
     <string name="rlf_img">rlf_image</string>
+    <string name="sign_up_desc_txt">To start project, create account …</string>
+    <string name="log_in_desc_txt">To start project, log in to your account …</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="pls_wt_ext">Press again to exit …</string>
+    <string name="pls_wt">Please Wait&#8230;</string>
+    <string name="reset_pwd">Reset Password</string>
+    <string name="reset_pwd_desc_txt">Reset password using registered email</string>
 </resources>

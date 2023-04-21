@@ -7,7 +7,7 @@
     android:background="@drawable/splash_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".ActivityRLF">
+    tools:context=".activities.ActivityRLF">
 
     <TextView
         android:id="@+id/rlf_txt_view"
@@ -57,7 +57,7 @@
         android:textSize="@dimen/plan_text_desc_size" />
 
     <Button
-        android:id="@+id/log_in_btn"
+        android:id="@+id/log_in_btn_rlf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -74,7 +74,7 @@
         app:backgroundTint="@null" />
 
     <Button
-        android:id="@+id/sign_up_btn"
+        android:id="@+id/sign_up_btn_rlf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -90,7 +90,7 @@
         android:textSize="@dimen/btn_txt_size"
         app:backgroundTint="@null"/>
     <Button
-        android:id="@+id/reset_pwd_btn"
+        android:id="@+id/reset_pwd_btn_rlf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -101,7 +101,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/btn_padding_top_btm"
         android:paddingBottom="@dimen/btn_padding_top_btm"
-        android:text="@string/reset_password"
+        android:text="@string/reset_pwd"
         android:textColor="@color/white"
         android:textSize="@dimen/btn_txt_size"
         app:backgroundTint="@null"/>

@@ -23,8 +23,8 @@ class FireBaseRDB {
             }
     }
 
-    private fun getCurrentUserId():String{
-        var currentUser = FirebaseAuth.getInstance().currentUser
+    fun getCurrentUserId():String{
+        val currentUser = FirebaseAuth.getInstance().currentUser
 
         var currentUserId = ""
 

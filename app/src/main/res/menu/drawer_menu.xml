@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/profile_nav"
+            android:icon="@drawable/profile_icon"
+            android:title="@string/profile_nav"/>
+        <item android:id="@+id/log_out_nav"
+            android:icon="@drawable/log_out_icon"
+            android:title="@string/log_out_nav"/>
+    </group>
+</menu>

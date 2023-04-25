@@ -5,6 +5,8 @@
     <string name="plan_text_desc">"Expect the best, plan for the worst, and prepare to be surprised." ~ Denis Waitley </string>
     <string name="log_in">Log In</string>
     <string name="sign_up">Create Account</string>
+    <string name="profile_nav">Profile</string>
+    <string name="log_out_nav">Log Out</string>
     <string name="rlf_img">rlf_image</string>
     <string name="sign_up_desc_txt">To start project, create account …</string>
     <string name="log_in_desc_txt">To start project, log in to your account …</string>

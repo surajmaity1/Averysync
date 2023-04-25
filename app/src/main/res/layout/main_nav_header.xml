@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_main_height"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@drawable/main_nav_header_bg">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/usr_img_nav"
+        android:layout_width="@dimen/img_sz_nav"
+        android:layout_height="@dimen/img_sz_nav"
+        android:contentDescription="@string/img_desc"
+        android:src="@drawable/profile_icon"
+        app:civ_border_color="@color/off_white"
+        app:civ_border_width="@dimen/circle_border_width_nav"
+        android:layout_marginStart="@dimen/margin_nav"
+        android:layout_marginEnd="@dimen/margin_nav" />
+
+    <TextView
+        android:id="@+id/usr_name_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/usr_name_txt_sz_nav"
+        android:layout_marginStart="@dimen/margin_nav"
+        android:layout_marginTop="@dimen/margin_tp_nav"
+        android:layout_marginEnd="@dimen/margin_nav"
+        android:layout_marginBottom="@dimen/margin_btm_nav"/>
+
+    <!--This view will work as a divider ... -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height_nav"
+        android:background="@color/off_white" />
+</LinearLayout>

@@ -34,4 +34,12 @@
     <dimen name="pg_bar_size">55dp</dimen>
     <dimen name="pg_txt_margin">15dp</dimen>
     <dimen name="pg_txt_sz">18sp</dimen>
+    <dimen name="margin_nav">18dp</dimen>
+    <dimen name="margin_tp_nav">5dp</dimen>
+    <dimen name="margin_btm_nav">10dp</dimen>
+    <dimen name="nav_main_height">200dp</dimen>
+    <dimen name="img_sz_nav">70dp</dimen>
+    <dimen name="usr_name_txt_sz_nav">18sp</dimen>
+    <dimen name="circle_border_width_nav">1.5dp</dimen>
+    <dimen name="divider_height_nav">1dp</dimen>
 </resources>

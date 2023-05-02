@@ -11,9 +11,10 @@
         android:theme="@style/Theme.Averysync.OverlayAppBar">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/dashboard_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/app_color_1"
+            android:background="@color/color_toolbar"
             app:popupTheme="@style/Theme.Averysync.OverlayPopUp">
 
         </androidx.appcompat.widget.Toolbar>

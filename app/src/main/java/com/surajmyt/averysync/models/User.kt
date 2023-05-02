@@ -8,7 +8,7 @@ data class User(
     val id : String = "",
     val name: String = "",
     val email: String = "",
-    val image : String = "",
+    val img : String = "",
     val mobile: Long = 0,
     val token: String = ""
 ): Parcelable {
@@ -26,7 +26,7 @@ data class User(
         parcel.writeString(id)
         parcel.writeString(name)
         parcel.writeString(email)
-        parcel.writeString(image)
+        parcel.writeString(img)
         parcel.writeLong(mobile)
         parcel.writeString(token)
     }

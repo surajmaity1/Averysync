@@ -30,7 +30,6 @@ open class HelperActivity : AppCompatActivity() {
         progressDialog = Dialog(this)
 
         progressDialog.setContentView(R.layout.progress_dialog)
-        //val textView = findViewById<TextView>(R.id.pg_txt_view)
         progressDialog.findViewById<TextView>(R.id.pg_txt_view).text = text
         progressDialog.show()
     }

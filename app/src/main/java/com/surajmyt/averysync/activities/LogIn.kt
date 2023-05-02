@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.surajmyt.averysync.R
+import com.surajmyt.averysync.models.User
 
 class LogIn : HelperActivity() {
 
@@ -65,6 +66,15 @@ class LogIn : HelperActivity() {
                     }
                 }
         }
+    }
+
+    fun logInSuccess(user: User) {
+        hideProgressDialog()
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+
+        finish()
     }
 
     private fun isMailVerified() : Boolean{

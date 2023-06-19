@@ -1,8 +1,10 @@
 package com.surajmyt.averysync.activities
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -17,6 +19,11 @@ import com.surajmyt.averysync.realtime_database.FireBaseRDB
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    companion object {
+        const val USR_PROFILE_REQ_CODE = 3
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,7 +66,7 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.profile_nav ->{
-                startActivity(Intent(this@MainActivity, UsrProfile::class.java))
+                startActivityForResult(Intent(this@MainActivity, UsrProfile::class.java), USR_PROFILE_REQ_CODE)
             }
             R.id.log_out_nav -> {
                 FirebaseAuth.getInstance().signOut()
@@ -95,4 +102,12 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
         usrTxtView.text = usr.name
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == USR_PROFILE_REQ_CODE) {
+            FireBaseRDB().fetchUsrDetails(this)
+        }else {
+            Log.e("MainActivity: ", "User Profile data not updated.")
+        }
+    }
 }

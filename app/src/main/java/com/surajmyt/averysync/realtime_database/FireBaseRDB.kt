@@ -2,6 +2,7 @@ package com.surajmyt.averysync.realtime_database
 
 import android.app.Activity
 import android.util.Log
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -70,4 +71,20 @@ class FireBaseRDB {
         return currentUserId
     }
 
+    fun updateUsrProfileInfo(activity: UsrProfile, usrHashMap: HashMap<String, Any>) {
+        mFireStore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .update(usrHashMap)
+            .addOnSuccessListener {
+                Log.i(activity.javaClass.simpleName, "Profile Info updated successfully.")
+                Toast.makeText(activity, "Profile Info updated.", Toast.LENGTH_SHORT).show()
+                activity.updateUsrProfSuccess()
+            }
+            .addOnFailureListener {e ->
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Failed While Updating Profile Info.", e)
+                Toast.makeText(activity, "Failed While Updating Profile Info.", Toast.LENGTH_SHORT).show()
+            }
+
+    }
 }

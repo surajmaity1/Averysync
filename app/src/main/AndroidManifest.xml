@@ -17,11 +17,15 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
+            android:name=".activities.NewBoard"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Averysync.NoActionBar" />
+        <activity
             android:name=".activities.UsrProfile"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Averysync.NoActionBar"
-            />
+            android:theme="@style/Theme.Averysync.NoActionBar" />
         <activity
             android:name=".activities.ResetPassword"
             android:exported="false"

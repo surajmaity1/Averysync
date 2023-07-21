@@ -8,8 +8,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.surajmyt.averysync.activities.LogIn
 import com.surajmyt.averysync.activities.MainActivity
+import com.surajmyt.averysync.activities.NewBoard
 import com.surajmyt.averysync.activities.SignUp
 import com.surajmyt.averysync.activities.UsrProfile
+import com.surajmyt.averysync.models.Board
 import com.surajmyt.averysync.models.User
 import com.surajmyt.averysync.utils.Constants
 
@@ -56,6 +58,21 @@ class FireBaseRDB {
                 FirebaseAuth.getInstance().signOut()
             }.addOnFailureListener { exception ->
                 Log.e(activity.javaClass.simpleName,"Error while getting loggedIn user details", exception)
+            }
+    }
+
+    fun newBoardCreation(activity: NewBoard, board: Board) {
+        mFireStore.collection(Constants.BOARDS)
+            .document()
+            .set(board, SetOptions.merge())
+            .addOnSuccessListener {
+                Log.e(activity.javaClass.simpleName, "New Board Created")
+                Toast.makeText(activity, "New Board Created", Toast.LENGTH_SHORT).show()
+                activity.newBoardCreationSuccessTask()
+            }
+            .addOnFailureListener {exception ->
+                Log.e(activity.javaClass.simpleName, "Board creation failed", exception)
+                Toast.makeText(activity, "Board creation failed. Please try again.", Toast.LENGTH_SHORT).show()
             }
     }
 

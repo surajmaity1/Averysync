@@ -20,4 +20,7 @@
     <string name="pls_wt">Please Wait&#8230;</string>
     <string name="reset_pwd">Reset Password</string>
     <string name="reset_pwd_desc_txt">Reset password using registered email</string>
+    <string name="new_brd_title">Create New Board</string>
+    <string name="create">Create</string>
+    <string name="brd_name">Board Name</string>
 </resources>

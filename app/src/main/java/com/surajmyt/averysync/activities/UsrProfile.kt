@@ -34,10 +34,6 @@ class UsrProfile : HelperActivity() {
     lateinit var mUsrDetails: User
     private var mSelectedImgUri: Uri? = null
     private var mUsrProfImgUrl: String = ""
-    companion object {
-        private const val READ_STORAGE_PERMISSION_CODE = 1
-        private const val PICK_IMG_REQ_CODE = 2
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,12 +52,12 @@ class UsrProfile : HelperActivity() {
                     this, Manifest.permission.READ_EXTERNAL_STORAGE
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                chooseImg()
+                Constants.chooseImg(this)
             } else {
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                    READ_STORAGE_PERMISSION_CODE
+                    Constants.READ_STORAGE_PERMISSION_CODE
                 )
             }
         }
@@ -123,7 +119,7 @@ class UsrProfile : HelperActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            chooseImg()
+            Constants.chooseImg(this)
         } else {
             Toast.makeText(
                 this@UsrProfile,
@@ -134,18 +130,13 @@ class UsrProfile : HelperActivity() {
     }
 
 
-    private fun chooseImg() {
-        val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(galleryIntent, PICK_IMG_REQ_CODE)
-    }
-
     override fun onActivityResult(
         requestCode: Int, resultCode: Int, data: Intent?
     ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (
             resultCode == Activity.RESULT_OK
-            && requestCode == PICK_IMG_REQ_CODE
+            && requestCode == Constants.PICK_IMG_REQ_CODE
             && data!!.data != null
         ){
             mSelectedImgUri = data.data
@@ -190,7 +181,7 @@ class UsrProfile : HelperActivity() {
             val strRef: StorageReference = FirebaseStorage
                 .getInstance().reference.child(
                     "USR_IMG" + System.currentTimeMillis()
-                            + "." + fetchFileExtension(mSelectedImgUri)
+                            + "." + Constants.fetchFileExtension(this, mSelectedImgUri)
                 )
             strRef.putFile(mSelectedImgUri!!)
                 .addOnSuccessListener { taskSnapshot ->
@@ -216,8 +207,7 @@ class UsrProfile : HelperActivity() {
         }
 
     }
-    private fun fetchFileExtension(uri: Uri?): String? = MimeTypeMap
-        .getSingleton().getExtensionFromMimeType(contentResolver.getType(uri!!))
+
 
     fun updateUsrProfSuccess() {
         hideProgressDialog()

@@ -22,4 +22,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/dashboard"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_btn_dash_brd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_btn_mrg"
+        app:srcCompat="@drawable/ic_add_btn"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.NewBoard">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Averysync.OverlayAppBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/new_board_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_toolbar"
+            app:popupTheme="@style/Theme.Averysync.OverlayPopUp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/new_brd_padding">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/card_view_elevation"
+            app:cardBackgroundColor="@color/off_white"
+            app:cardCornerRadius="@dimen/card_view_corner_radius">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/card_view_content_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/brd_img"
+                    android:layout_width="@dimen/new_brd_img_sz"
+                    android:layout_height="@dimen/new_brd_img_sz"
+                    android:contentDescription="@string/img_desc"
+                    android:src="@drawable/ic_board_place_holder" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/new_brd_mrg_top">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/new_brd_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/brd_name"
+                        android:inputType="text"
+                        android:textSize="@dimen/enter_txt_sz" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/brd_create_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/new_brd_btn_mrg_top"
+                    android:background="@drawable/customized_button"
+                    app:backgroundTint="@null"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/btn_padding_top_btm"
+                    android:paddingBottom="@dimen/btn_padding_top_btm"
+                    android:text="@string/create"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/btn_txt_size" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

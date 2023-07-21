@@ -6,16 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.surajmyt.averysync.R
 import com.surajmyt.averysync.models.User
 import com.surajmyt.averysync.realtime_database.FireBaseRDB
+import com.surajmyt.averysync.utils.Constants
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +27,8 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
         const val USR_PROFILE_REQ_CODE = 3
     }
 
+    private lateinit var mUsrName: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,9 +36,17 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
         setUpActionBar()
 
         val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+        val fabBtn = findViewById<FloatingActionButton>(R.id.fab_btn_dash_brd)
+
         navigationView.setNavigationItemSelectedListener(this)
 
         FireBaseRDB().fetchUsrDetails(this)
+
+        fabBtn.setOnClickListener {
+            val intent = Intent(this@MainActivity, NewBoard::class.java)
+            intent.putExtra(Constants.NAME, mUsrName)
+            startActivity(intent)
+        }
     }
 
     private fun setUpActionBar() {
@@ -89,6 +102,7 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
     }
 
     fun updateNavUsrInfo(usr: User){
+        mUsrName = usr.name
         val navUsrImg = findViewById<CircleImageView>(R.id.usr_img_nav)
         val usrTxtView = findViewById<TextView>(R.id.usr_name_nav)
 

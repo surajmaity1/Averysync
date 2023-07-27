@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -34,6 +35,10 @@ class UsrProfile : HelperActivity() {
     lateinit var mUsrDetails: User
     private var mSelectedImgUri: Uri? = null
     private var mUsrProfImgUrl: String = ""
+    private val readImagePermission =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            Manifest.permission.READ_MEDIA_IMAGES
+        else Manifest.permission.READ_EXTERNAL_STORAGE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,14 +54,14 @@ class UsrProfile : HelperActivity() {
         usrImg.setOnClickListener {
             if (
                 ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.READ_EXTERNAL_STORAGE
+                    this, readImagePermission
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 Constants.chooseImg(this)
             } else {
                 ActivityCompat.requestPermissions(
                     this,
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    arrayOf(readImagePermission),
                     Constants.READ_STORAGE_PERMISSION_CODE
                 )
             }

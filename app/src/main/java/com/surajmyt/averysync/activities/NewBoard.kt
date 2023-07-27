@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,11 @@ class NewBoard : HelperActivity() {
     private lateinit var mUsrName: String
     private var mBoardImgUrl: String = ""
 
+    private val readImagePermission =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            Manifest.permission.READ_MEDIA_IMAGES
+        else Manifest.permission.READ_EXTERNAL_STORAGE
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_board)
@@ -48,14 +54,14 @@ class NewBoard : HelperActivity() {
         boardImage.setOnClickListener {
             if (
                 ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.READ_EXTERNAL_STORAGE
+                    this, readImagePermission
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 Constants.chooseImg(this)
             } else {
                 ActivityCompat.requestPermissions(
                     this,
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    arrayOf(readImagePermission),
                     Constants.READ_STORAGE_PERMISSION_CODE
                 )
             }

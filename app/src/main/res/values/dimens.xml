@@ -55,15 +55,15 @@
     <dimen name="new_brd_img_sz">80dp</dimen>
     <dimen name="new_brd_mrg_top">20dp</dimen>
     <dimen name="new_brd_btn_mrg_top">28dp</dimen>
-    <dimen name="dsh_brd_pdng">16dp</dimen>
-    <dimen name="no_brd_avl_txt_sz">16sp</dimen>
-    <dimen name="itm_brd_cntnt_mrg_btm">10dp</dimen>
-    <dimen name="itm_brd_cntnt_pdng">10dp</dimen>
-    <dimen name="itm_brd_img_sz">60dp</dimen>
-    <dimen name="itm_brd_img_cir_border_width">0.5dp</dimen>
-    <dimen name="itm_brd_name_layout_mrg_start">10dp</dimen>
+    <dimen name="dsh_brd_pdng">18dp</dimen>
+    <dimen name="itm_brd_div_hgt">0.4dp</dimen>
+    <dimen name="itm_brd_crt_txt_sz">15sp</dimen>
+    <dimen name="itm_brd_img_cir_border_width">0.7dp</dimen>
+    <dimen name="itm_brd_cntnt_pdng">12dp</dimen>
+    <dimen name="itm_brd_img_sz">65dp</dimen>
+    <dimen name="itm_brd_name_layout_mrg_start">14dp</dimen>
+    <dimen name="no_brd_avl_txt_sz">18sp</dimen>
+    <dimen name="itm_brd_div_mrg_top">8dp</dimen>
+    <dimen name="itm_brd_cntnt_mrg_btm">12dp</dimen>
     <dimen name="itm_brd_name_txt_sz">18sp</dimen>
-    <dimen name="itm_brd_crt_txt_sz">14sp</dimen>
-    <dimen name="itm_brd_div_mrg_top">5dp</dimen>
-    <dimen name="itm_brd_div_hgt">0.3dp</dimen>
 </resources>

@@ -24,4 +24,5 @@
     <string name="create">Create</string>
     <string name="brd_name">Board Name</string>
     <string name="no_brd_avl">Create a Board To show up here …</string>
+    <string name="developed_by">Developed by: </string>
 </resources>

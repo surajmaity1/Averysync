@@ -13,6 +13,7 @@ object Constants {
     const val MOBILE: String = "mobile"
     const val IMG: String = "img"
     const val BOARDS: String = "boards"
+    const val ASSIGNED_TO: String = "assignedTo"
     const val READ_STORAGE_PERMISSION_CODE = 1
     const val PICK_IMG_REQ_CODE = 2
 

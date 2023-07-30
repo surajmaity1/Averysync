@@ -5,16 +5,18 @@ import android.os.Parcelable
 import android.widget.EditText
 
 data class Board(
-    var img: String = "",
-    var name: String = "",
-    var createdBy: String = "",
-    var assignedTo: ArrayList<String> = ArrayList(),
+    val img: String = "",
+    val name: String = "",
+    val createdBy: String = "",
+    val assignedTo: ArrayList<String> = ArrayList(),
+    var documentId: String = ""
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.createStringArrayList()!!
+        parcel.createStringArrayList()!!,
+        parcel.readString()!!
     ) {
     }
 
@@ -23,6 +25,7 @@ data class Board(
         parcel.writeString(name)
         parcel.writeString(createdBy)
         parcel.writeStringList(assignedTo)
+        parcel.writeString(documentId)
     }
 
     override fun describeContents(): Int {

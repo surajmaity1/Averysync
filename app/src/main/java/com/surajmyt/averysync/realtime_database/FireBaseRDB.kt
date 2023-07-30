@@ -19,7 +19,7 @@ class FireBaseRDB {
 
     private val mFireStore = FirebaseFirestore.getInstance()
     private val tag = "FireBaseRDB"
-    fun fetchUsrDetails(activity: Activity) {
+    fun fetchUsrDetails(activity: Activity, readBrdLstNeeded: Boolean = false) {
         mFireStore.collection(Constants.USERS).document(getCurrentUserId())
             .get()
             .addOnSuccessListener { docs ->
@@ -27,7 +27,7 @@ class FireBaseRDB {
 
                 when(activity) {
                     is MainActivity -> {
-                        activity.updateNavUsrInfo(loggedUser)
+                        activity.updateNavUsrInfo(loggedUser, readBrdLstNeeded)
                     }
                     is UsrProfile -> {
                         activity.showUsrData(loggedUser)
@@ -103,5 +103,27 @@ class FireBaseRDB {
                 Toast.makeText(activity, "Failed While Updating Profile Info.", Toast.LENGTH_SHORT).show()
             }
 
+    }
+
+    fun fetchBoardList(activity: MainActivity) {
+        mFireStore.collection(Constants.BOARDS)
+            .whereArrayContains(Constants.ASSIGNED_TO, getCurrentUserId())
+            .get()
+            .addOnSuccessListener { documentsSnapShots ->
+
+                Log.i(activity.javaClass.simpleName, documentsSnapShots.documents.toString())
+                val boardList: ArrayList<Board> = ArrayList()
+
+                for (document in documentsSnapShots) {
+                    val eachBoard = document.toObject(Board::class.java)!!
+                    eachBoard.documentId = document.id
+                    boardList.add(eachBoard)
+                }
+                activity.attachBoardListToUI(boardList)
+            }
+            .addOnFailureListener {
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Error: Fetching Board from FireStore Failed")
+            }
     }
 }

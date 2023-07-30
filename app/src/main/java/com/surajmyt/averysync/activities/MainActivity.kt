@@ -2,20 +2,23 @@ package com.surajmyt.averysync.activities
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Button
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.surajmyt.averysync.R
+import com.surajmyt.averysync.adapters.BoardAdapter
+import com.surajmyt.averysync.models.Board
 import com.surajmyt.averysync.models.User
 import com.surajmyt.averysync.realtime_database.FireBaseRDB
 import com.surajmyt.averysync.utils.Constants
@@ -25,6 +28,7 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
 
     companion object {
         const val USR_PROFILE_REQ_CODE = 3
+        const val NEW_BRD_DEVELOPED_REQ_CODE = 4
     }
 
     private lateinit var mUsrName: String
@@ -40,12 +44,12 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
 
         navigationView.setNavigationItemSelectedListener(this)
 
-        FireBaseRDB().fetchUsrDetails(this)
+        FireBaseRDB().fetchUsrDetails(this, true)
 
         fabBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, NewBoard::class.java)
             intent.putExtra(Constants.NAME, mUsrName)
-            startActivity(intent)
+            startActivityForResult(intent, NEW_BRD_DEVELOPED_REQ_CODE)
         }
     }
 
@@ -101,8 +105,9 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
         return true
     }
 
-    fun updateNavUsrInfo(usr: User){
+    fun updateNavUsrInfo(usr: User, readBrdLstNeeded: Boolean){
         mUsrName = usr.name
+
         val navUsrImg = findViewById<CircleImageView>(R.id.usr_img_nav)
         val usrTxtView = findViewById<TextView>(R.id.usr_name_nav)
 
@@ -114,13 +119,44 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
             .into(navUsrImg)
 
         usrTxtView.text = usr.name
+
+        if (readBrdLstNeeded) {
+            progressDialog(resources.getString(R.string.pls_wt))
+            FireBaseRDB().fetchBoardList(this)
+        }
+    }
+
+    fun  attachBoardListToUI(boardList: ArrayList<Board>) {
+        hideProgressDialog()
+
+        val noBrdAvlTxtView = findViewById<TextView>(R.id.no_brd_avl_txt_view)
+        val brdLstRecyclerView = findViewById<RecyclerView>(R.id.brd_lst_recycler_view)
+
+        if (boardList.size > 0) {
+            brdLstRecyclerView.visibility = View.VISIBLE
+            noBrdAvlTxtView.visibility = View.GONE
+
+            brdLstRecyclerView.layoutManager = LinearLayoutManager(this)
+            brdLstRecyclerView.setHasFixedSize(true)
+
+            val adapter = BoardAdapter(this, boardList)
+            brdLstRecyclerView.adapter = adapter
+        }
+        else {
+            noBrdAvlTxtView.visibility = View.VISIBLE
+            brdLstRecyclerView.visibility = View.GONE
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == USR_PROFILE_REQ_CODE) {
             FireBaseRDB().fetchUsrDetails(this)
-        }else {
+        }
+        else if (resultCode == Activity.RESULT_OK && requestCode == NEW_BRD_DEVELOPED_REQ_CODE) {
+            FireBaseRDB().fetchBoardList(this)
+        }
+        else {
             Log.e("MainActivity: ", "User Profile data not updated.")
         }
     }

@@ -119,6 +119,7 @@ class NewBoard : HelperActivity() {
 
     fun newBoardCreationSuccessTask() {
         hideProgressDialog()
+        setResult(Activity.RESULT_OK)
         finish()
     }
 

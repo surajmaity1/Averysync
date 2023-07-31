@@ -10,6 +10,7 @@ import com.surajmyt.averysync.activities.LogIn
 import com.surajmyt.averysync.activities.MainActivity
 import com.surajmyt.averysync.activities.NewBoard
 import com.surajmyt.averysync.activities.SignUp
+import com.surajmyt.averysync.activities.TaskActivity
 import com.surajmyt.averysync.activities.UsrProfile
 import com.surajmyt.averysync.models.Board
 import com.surajmyt.averysync.models.User
@@ -116,7 +117,7 @@ class FireBaseRDB {
 
                 for (document in documentsSnapShots) {
                     val eachBoard = document.toObject(Board::class.java)!!
-                    eachBoard.documentId = document.id
+                    eachBoard.docId = document.id
                     boardList.add(eachBoard)
                 }
                 activity.attachBoardListToUI(boardList)
@@ -124,6 +125,39 @@ class FireBaseRDB {
             .addOnFailureListener {
                 activity.hideProgressDialog()
                 Log.e(activity.javaClass.simpleName, "Error: Fetching Board from FireStore Failed")
+            }
+    }
+    fun fetchBoardDetails(activity: TaskActivity, docId: String){
+
+        mFireStore.collection(Constants.BOARDS)
+            .document(docId)
+            .get()
+            .addOnSuccessListener { documentsSnapShots ->
+
+                Log.i(activity.javaClass.simpleName, documentsSnapShots.toString())
+
+                val board = documentsSnapShots.toObject(Board::class.java)!!
+                board.docId = documentsSnapShots.id
+                activity.boardDetails(board)
+            }
+            .addOnFailureListener {
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Error: Fetching Board Details from FireStore Failed")
+            }
+    }
+    fun createUpdateTaskList(activity: TaskActivity, board: Board) {
+        val taskListHashMap = HashMap<String, Any>()
+        taskListHashMap[Constants.TASK_LIST] = board.taskList
+
+        mFireStore.collection(Constants.BOARDS)
+            .document(board.docId)
+            .update(taskListHashMap)
+            .addOnSuccessListener {
+                Log.i(activity.javaClass.simpleName, "Task Operation [Add or Update] Performed.")
+                activity.createUpdateTaskList()
+            }
+            .addOnFailureListener {exception ->
+                Log.e(activity.javaClass.simpleName, "Error: Task Operation [Add or Update] Failed.", exception)
             }
     }
 }

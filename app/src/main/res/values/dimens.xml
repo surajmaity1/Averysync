@@ -65,5 +65,21 @@
     <dimen name="no_brd_avl_txt_sz">18sp</dimen>
     <dimen name="itm_brd_div_mrg_top">8dp</dimen>
     <dimen name="itm_brd_cntnt_mrg_btm">12dp</dimen>
+
+    <dimen name="tsk_itm_crd_lst_mrg">8dp</dimen>
+    <dimen name="tsk_itm_div_hei">0.8dp</dimen>
+    <dimen name="tsk_itm_add_crd_txt_ele">9dp</dimen>
     <dimen name="itm_brd_name_txt_sz">18sp</dimen>
+    <dimen name="tsk_itm_add_itm_txt_sz">20sp</dimen>
+    <dimen name="tsk_itm_corner_rad">8dp</dimen>
+    <dimen name="tsk_itm_ttl_view_ele">12dp</dimen>
+    <dimen name="tsk_itm_ttl_txt_sz">15sp</dimen>
+    <dimen name="tsk_itm_elev">7dp</dimen>
+    <dimen name="tsk_itm_cv_mrg">7dp</dimen>
+    <dimen name="tsk_itm_add_itm_txt_pdng">14dp</dimen>
+    <dimen name="tsk_itm_img_btn_pdng">12dp</dimen>
+    <dimen name="tsk_itm_ttl_txt_pdng">12dp</dimen>
+    <dimen name="tsk_itm_card_lst_rec_view">7dp</dimen>
+
+
 </resources>

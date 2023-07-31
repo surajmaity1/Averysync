@@ -2,21 +2,22 @@ package com.surajmyt.averysync.models
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.widget.EditText
 
 data class Board(
     val img: String = "",
     val name: String = "",
     val createdBy: String = "",
     val assignedTo: ArrayList<String> = ArrayList(),
-    var documentId: String = ""
+    var docId: String = "",
+    var taskList: ArrayList<Task> = ArrayList()
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.createStringArrayList()!!,
-        parcel.readString()!!
+        parcel.readString()!!,
+        parcel.createTypedArrayList(Task.CREATOR)!!
     ) {
     }
 
@@ -25,12 +26,11 @@ data class Board(
         parcel.writeString(name)
         parcel.writeString(createdBy)
         parcel.writeStringList(assignedTo)
-        parcel.writeString(documentId)
+        parcel.writeString(docId)
+        parcel.writeTypedList(taskList)
     }
 
-    override fun describeContents(): Int {
-        return 0
-    }
+    override fun describeContents(): Int = 0
 
     companion object CREATOR : Parcelable.Creator<Board> {
         override fun createFromParcel(parcel: Parcel): Board {

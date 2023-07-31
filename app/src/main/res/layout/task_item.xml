@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:elevation="@dimen/tsk_itm_elev">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/crt_tsk_lst_txt_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/off_white"
+            android:gravity="center"
+            android:padding="@dimen/tsk_itm_add_itm_txt_pdng"
+            android:text="@string/crt_lst_act"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/tsk_itm_add_itm_txt_sz"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/crt_tsk_lst_name_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tsk_itm_cv_mrg"
+            android:elevation="@dimen/tsk_itm_elev"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/tsk_itm_corner_rad"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/lst_name_cls_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/img_desc"
+                    android:padding="@dimen/tsk_itm_img_btn_pdng"
+                    android:src="@drawable/cncl_btn" />
+
+                <EditText
+                    android:id="@+id/tsk_lst_name_edt_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints="@string/lst_name_hint"
+                    android:gravity="center"
+                    android:hint="@string/lst_name_hint"
+                    android:inputType="text" />
+
+                <ImageButton
+                    android:id="@+id/lst_name_sv_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/img_desc"
+                    android:padding="@dimen/tsk_itm_img_btn_pdng"
+                    android:src="@drawable/sav_btn" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/tsk_itm_lin_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tsk_act_color"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ttl_view_lin_lt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tsk_ttl_bg_color"
+                android:elevation="@dimen/tsk_itm_ttl_view_ele"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageButton
+                    android:id="@+id/lst_del_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/img_desc"
+                    android:padding="@dimen/tsk_itm_img_btn_pdng"
+                    android:src="@drawable/del_btn" />
+
+                <TextView
+                    android:id="@+id/tsk_lst_ttl_txt_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/off_white"
+                    android:gravity="center"
+                    android:padding="@dimen/tsk_itm_ttl_txt_pdng"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/tsk_itm_ttl_txt_sz"
+                    tools:text="Title" />
+
+                <ImageButton
+                    android:id="@+id/lst_edt_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/img_desc"
+                    android:padding="@dimen/tsk_itm_img_btn_pdng"
+                    android:src="@drawable/edt_btn" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tsk_itm_div_hei"
+                android:background="@color/div_color" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edt_tsk_lst_name_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tsk_itm_cv_mrg"
+                android:elevation="@dimen/tsk_itm_elev"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/tsk_itm_corner_rad"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/edt_view_cls_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/img_desc"
+                        android:padding="@dimen/tsk_itm_img_btn_pdng"
+                        android:src="@drawable/cncl_btn" />
+
+                    <EditText
+                        android:id="@+id/edt_tsk_name_edt_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="@string/lst_name_hint"
+                        android:gravity="center"
+                        android:hint="@string/lst_name_hint"
+                        android:inputType="text" />
+
+                    <ImageButton
+                        android:id="@+id/edt_lst_name_sv_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/img_desc"
+                        android:padding="@dimen/tsk_itm_img_btn_pdng"
+                        android:src="@drawable/sav_btn" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/card_list_rec_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tsk_itm_card_lst_rec_view" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crt_card_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tsk_itm_cv_mrg"
+                android:elevation="@dimen/tsk_itm_elev"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/tsk_itm_corner_rad"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/card_name_cls_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/img_desc"
+                        android:padding="@dimen/tsk_itm_img_btn_pdng"
+                        android:src="@drawable/cncl_btn" />
+
+                    <EditText
+                        android:id="@+id/card_name_edt_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="@string/enter_crd_name"
+                        android:gravity="center"
+                        android:hint="@string/enter_crd_name"
+                        android:inputType="text" />
+
+                    <ImageButton
+                        android:id="@+id/card_name_sv_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/img_desc"
+                        android:padding="@dimen/tsk_itm_img_btn_pdng"
+                        android:src="@drawable/sav_btn" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/crt_card_txt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tsk_act_color"
+                android:elevation="@dimen/tsk_itm_add_crd_txt_ele"
+                android:gravity="center"
+                android:padding="@dimen/tsk_itm_add_itm_txt_pdng"
+                android:text="@string/crt_card_act"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/tsk_itm_add_itm_txt_sz" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

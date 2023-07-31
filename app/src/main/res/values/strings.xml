@@ -25,4 +25,10 @@
     <string name="brd_name">Board Name</string>
     <string name="no_brd_avl">Create a Board To show up here …</string>
     <string name="developed_by">Developed by: </string>
+    <string name="crt_lst">Create List</string>
+    <string name="crt_lst_act">Create List</string>
+    <string name="crt_card_act">Create Card</string>
+    <string name="lst_name_hint">Enter List Name</string>
+    <string name="enter_lst_name">Enter List Name</string>
+    <string name="enter_crd_name">Enter Card Name</string>
 </resources>

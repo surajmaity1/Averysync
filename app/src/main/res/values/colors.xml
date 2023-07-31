@@ -16,4 +16,6 @@
     <color name="gray_light">#7A8084</color>
     <color name="snack_bar_err_color">#F44336</color>
     <color name="color_toolbar">#8697F3</color>
+    <color name="tsk_ttl_bg_color">#F8F8F8</color>
+    <color name="tsk_act_color">#FDF2F2</color>
 </resources>

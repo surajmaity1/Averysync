@@ -141,6 +141,15 @@ class MainActivity : HelperActivity(), NavigationView.OnNavigationItemSelectedLi
 
             val adapter = BoardAdapter(this, boardList)
             brdLstRecyclerView.adapter = adapter
+
+            adapter.setOnClickListener(object: BoardAdapter.OnClickListener{
+                override fun onClick(position: Int, model: Board) {
+                    val intent = Intent(this@MainActivity, TaskActivity::class.java)
+                    intent.putExtra(Constants.DOC_ID, model.docId)
+                    startActivity(intent)
+                }
+
+            })
         }
         else {
             noBrdAvlTxtView.visibility = View.VISIBLE

@@ -2,6 +2,7 @@ package com.surajmyt.averysync.adapters
 
 import android.content.Context
 import android.content.res.Resources
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,16 +68,17 @@ open class TaskItemAdapter
                 createTaskListCardView.visibility = View.GONE
             }
             listNameSavBtn.setOnClickListener {
-                val listNameString = listName.toString()
+                Log.i("checkListName1", listName.toString())
+                val listNameString = listName.text.toString()
+                Log.i("checkListName2", listNameString)
 
                 if (listNameString.isNotEmpty()){
-
                     if (context is TaskActivity) {
                         context.createTaskList(listNameString)
                     }
-                    else {
-                        Toast.makeText(context, "List Name Required", Toast.LENGTH_SHORT).show()
-                    }
+                }
+                else {
+                    Toast.makeText(context, "List Name Required", Toast.LENGTH_SHORT).show()
                 }
             }
         }

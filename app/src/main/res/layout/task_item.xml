@@ -56,7 +56,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:autofillHints="@string/lst_name_hint"
-                    android:gravity="center"
                     android:hint="@string/lst_name_hint"
                     android:inputType="text" />
 
@@ -91,7 +90,7 @@
                 android:elevation="@dimen/tsk_itm_ttl_view_ele"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:visibility="gone"
+                android:visibility="visible"
                 tools:visibility="visible">
 
                 <ImageButton
@@ -162,7 +161,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:autofillHints="@string/lst_name_hint"
-                        android:gravity="center"
                         android:hint="@string/lst_name_hint"
                         android:inputType="text" />
 

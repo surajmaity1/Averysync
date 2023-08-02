@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.surajmyt.averysync.R
@@ -47,8 +48,18 @@ open class TaskItemAdapter
         val listNameClsBtn = holder.itemView.findViewById<ImageButton>(R.id.lst_name_cls_btn)
         val listNameSavBtn = holder.itemView.findViewById<ImageButton>(R.id.lst_name_sv_btn)
         val listName = holder.itemView.findViewById<EditText>(R.id.tsk_lst_name_edt_txt)
+        val listEdtBtn = holder.itemView.findViewById<ImageButton>(R.id.lst_edt_btn)
+        val edtTaskListNamCardView = holder.itemView.findViewById<CardView>(R.id.edt_tsk_lst_name_card_view)
+        val titleViewLinLayout = holder.itemView.findViewById<LinearLayout>(R.id.ttl_view_lin_lt)
+        val edtTaskNameEdtTxt = holder.itemView.findViewById<EditText>(R.id.edt_tsk_name_edt_txt)
+        val edtViewClsBtn = holder.itemView.findViewById<ImageButton>(R.id.edt_view_cls_btn)
+        val edtListNameSavBtn = holder.itemView.findViewById<ImageButton>(R.id.edt_lst_name_sv_btn)
+        val listDelBtn = holder.itemView.findViewById<ImageButton>(R.id.lst_del_btn)
+
+
 
         if (holder is MyViewHolder) {
+            // Create List
             if (position == list.size - 1) {
                 createTaskTextView.visibility = View.VISIBLE
                 taskItemLinLayout.visibility = View.GONE
@@ -81,7 +92,52 @@ open class TaskItemAdapter
                     Toast.makeText(context, "List Name Required", Toast.LENGTH_SHORT).show()
                 }
             }
+
+            // Update or Edit a list
+            listEdtBtn.setOnClickListener {
+                edtTaskNameEdtTxt.setText(model.title)
+                titleViewLinLayout.visibility = View.GONE
+                edtTaskListNamCardView.visibility = View.VISIBLE
+            }
+            edtViewClsBtn.setOnClickListener {
+                titleViewLinLayout.visibility = View.VISIBLE
+                edtTaskListNamCardView.visibility = View.GONE
+            }
+            edtListNameSavBtn.setOnClickListener {
+                val lstName = edtTaskNameEdtTxt.text.toString()
+
+                if (context is TaskActivity) {
+                    context.updateTaskList(lstName, position, model)
+                }else {
+                    Toast.makeText(context, "List Name Required", Toast.LENGTH_SHORT).show()
+                }
+            }
+            listDelBtn.setOnClickListener {
+                showAlertDialogAsWarning(position, model.title)
+            }
         }
+    }
+
+    private fun showAlertDialogAsWarning(position: Int, title: String) {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle("Warning")
+        alertDialogBuilder.setIcon(R.drawable.ic_warning)
+        alertDialogBuilder.setMessage("Delete $title ?")
+        alertDialogBuilder.setPositiveButton("Delete") { dialogInterface, _ ->
+            dialogInterface.dismiss()
+
+            if (context is TaskActivity) {
+                context.deleteTaskList(position)
+            }
+        }
+
+        alertDialogBuilder.setNegativeButton("Cancel") { dialogInterface, _ ->
+            dialogInterface.dismiss()
+        }
+
+        val createAlertDialog = alertDialogBuilder.create()
+        createAlertDialog.setCancelable(false)
+        createAlertDialog.show()
     }
 
 

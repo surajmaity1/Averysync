@@ -83,4 +83,23 @@ class TaskActivity : HelperActivity() {
 
         FireBaseRDB().createUpdateTaskList(this, mBoardDetails)
     }
+
+    fun updateTaskList(lstName: String, position: Int, model: Task) {
+        val task = Task(lstName, model.createdBy)
+
+        mBoardDetails.taskList[position] = task
+        mBoardDetails.taskList.removeAt(mBoardDetails.taskList.size - 1)
+
+        progressDialog(resources.getString(R.string.pls_wt))
+        FireBaseRDB().createUpdateTaskList(this, mBoardDetails)
+    }
+
+    fun deleteTaskList(position: Int) {
+        mBoardDetails.taskList.removeAt(position)
+        mBoardDetails.taskList.removeAt(mBoardDetails.taskList.size - 1)
+
+        progressDialog(resources.getString(R.string.pls_wt))
+        FireBaseRDB().createUpdateTaskList(this, mBoardDetails)
+    }
+
 }
